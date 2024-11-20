@@ -5,6 +5,12 @@ document.getElementById("get-btn").addEventListener("click", async () => {
     // The two input fields should be included in the request URL as **query parameters**
 
     // TODO
+    let name = document.getElementById("name").value;
+    let age = document.getElementById("age").value;
+    let response = await fetch("https://www.mywebsite.com/search?q=" + name + age);
+    console.log(response);
+    let data = await response.json();
+    output.textContent = JSON.stringify(data, null, 2);
 });
 
 document.getElementById("post-json-btn").addEventListener("click", async () => {
